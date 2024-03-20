@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import type { ChangeEventHandler } from "react";
 import io from "socket.io-client";
 
-const socket = io(process.env.NEXT_PUBLIC_CHAT_WS || "");
+const socket = io(process.env.NEXT_PUBLIC_CHAT_WS || "", {
+  withCredentials: true,
+});
 
 const usePage = () => {
   const [chats, setChats] = useState<
